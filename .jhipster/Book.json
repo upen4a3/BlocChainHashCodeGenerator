@@ -1,0 +1,16 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "last_name",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180415212802",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "book",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}

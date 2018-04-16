@@ -1,0 +1,60 @@
+<div class="row">
+
+	<div class="col-md-9">
+		<h1 class="display-4">Welcome, to ABC Bank!</h1>
+		<div [ngSwitch]="isAuthenticated()">
+			<div class="alert alert-success" *ngSwitchCase="true">
+				<span *ngIf="account"> You are logged in as"{{account.login}}". </span>
+				<div class="alert alert-warning" *ngSwitchCase="true">
+					<span *ngIf="account.login == 'admin';else other_content">
+						<table id="userdata" class="table table-striped">
+							<tbody>
+								<tr>
+									<td class="text-center">id</td>
+									<td class="text-center">First Name</td>
+									<td class="text-center">Last Name</td>
+									<td class="text-center">SSN</td>
+									<td class="text-center">Email</td>
+								</tr>
+							</tbody>
+							<tbody>
+								<tr *ngFor="let user of users">
+									<td class="text-capitalize">{{user.id}}</td>
+									<td class="text-capitalize">{{user.firstName}}</td>
+									<td class="text-capitalize">{{user.lastName}}</td>
+									<td class="text-capitalize">{{user.ssn}}</td>
+									<td class="text-capitalize">{{user.email}}</td>	
+									<td> 
+									 <input type="button" class="alert-link" value="Verify Account" 
+									 		 (click)="verify(user.id)"></td>
+								</tr>
+							</tbody>
+						</table>
+					</span>
+
+				</div>
+				<ng-template #other_content> <span>Please register to create an account</span>
+				<div>
+					<a style="color: #11d229; font-size: 16px;" class="alert-link"
+						routerLink="register">Register</a>
+				</div>
+				</ng-template>
+			</div>
+			<div class="alert alert-warning" *ngSwitchCase="false">
+				<span>Create UserName Password to set up account creation </span> <a
+					class="alert-link" routerLink="register">Create Login</a>
+			</div>
+		</div>
+
+		<p>If you have any question on CreationOfLogin/Registration Please
+			reach out to Admin@abcbank.com ot Tollfree No 1-800-911-987:</p>
+
+		<ul>
+			<li><a href="https://www.theabcbank.com/" target="_blank"
+				rel="noopener">ABC Bank homepage</a></li>
+			<li><a
+				href="https://twitter.com/TheABCBank?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
+				target="_blank" rel="noopener">follow @ABC on Twitter</a></li>
+		</ul>
+	</div>
+</div>
